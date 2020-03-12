@@ -1,32 +1,32 @@
 {% set name = "buildbot" %}
-{% set version = "2.6.0" %}
+{% set version = "2.7.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 3bc263575fcc0c292ed11a26340ca5133f5a0c8645a91fd75bad49643c946ad0
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 069001b73c5da8acc69f22cfab87740c8d4ba9c6f72da7f760fdd8100c74484a
 
 build:
   number: 0
-  skip: True  # [py2k]
+  noarch: python
   entry_points:
     - buildbot=buildbot.scripts.runner:run
-    - buildbot_windows_service=buildbot.scripts.windows_service:HandleCommandLine  # [win]
-  script: "{{ PYTHON }} -m pip install . -vv "
+    - buildbot_windows_service=buildbot.scripts.windows_service: HandleCommandLine  # [win]
+  script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python
+    - python >3.5
     - setuptools >=8.0
   run:
     - autobahn >=0.16.0
     - jinja2 >=2.1
     - pyjwt
-    - python
+    - python >3.5
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
@@ -77,12 +77,12 @@ test:
     - buildbot --help
 
 about:
-  home: "https://buildbot.net/"
-  license: "GNU General Public (GPL)"
-  license_family: "LGPL"
-  license_file: "COPYING"
-  summary: "Python-based continuous integration testing framework"
-  doc_url: "https://docs.buildbot.net"
+  home: https://buildbot.net/
+  license: GNU General Public (GPL)
+  license_family: LGPL
+  license_file: COPYING
+  summary: Python-based continuous integration testing framework
+  doc_url: https://docs.buildbot.net
 
 extra:
   recipe-maintainers:
