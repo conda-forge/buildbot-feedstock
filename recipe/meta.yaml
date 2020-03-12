@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k]
+  noarch: python
   entry_points:
     - buildbot=buildbot.scripts.runner:run
     - buildbot_windows_service=buildbot.scripts.windows_service: HandleCommandLine  # [win]
@@ -20,13 +20,13 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >3.5
     - setuptools >=8.0
   run:
     - autobahn >=0.16.0
     - jinja2 >=2.1
     - pyjwt
-    - python
+    - python >3.5
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
