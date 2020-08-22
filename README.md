@@ -5,7 +5,7 @@ Home: https://buildbot.net/
 
 Package license: GNU General Public (GPL)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Python-based continuous integration testing framework
 
