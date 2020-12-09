@@ -1,5 +1,5 @@
 {% set name = "buildbot" %}
-{% set version = "2.9.1" %}
+{% set version = "2.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 947b79f4b4dda92859f5bf6feda4a633e7da137cd51a84f50ce45701bb82094a
+  sha256: 5bfcc4e0a9aea28721ba0204b6298e0f3d2256dc548daa4b4b263a6f65773d05
 
 build:
   number: 0
