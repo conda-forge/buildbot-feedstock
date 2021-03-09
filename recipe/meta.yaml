@@ -1,5 +1,5 @@
 {% set name = "buildbot" %}
-{% set version = "2.10.2" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,79 +7,49 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1afc4f349aa6161a2c3b67cef634e1d38956b10ad585a12dec57e4a1dbc96299
+  sha256: 7e9412f354fa143711fa5f4b60c703801bd2bb925f3c8393990da551af3b2452
 
 build:
   number: 0
   noarch: python
   entry_points:
     - buildbot=buildbot.scripts.runner:run
-    - buildbot_windows_service=buildbot.scripts.windows_service: HandleCommandLine  # [win]
+    - buildbot_windows_service=buildbot.scripts.windows_service:HandleCommandLine
   script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python >3.5
+    - python >=3.6
     - setuptools >=8.0
   run:
     - autobahn >=0.16.0
     - jinja2 >=2.1
     - pyjwt
-    - python >3.5
+    - python >=3.6
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
-    - sqlalchemy >=1.1.0
-    - sqlalchemy-migrate >=0.9
+    - sqlalchemy >=1.2.0
+    - sqlalchemy-migrate >=0.13
     - twisted >=17.9.0
     - txaio >=2.2.2
     - zope.interface >=4.1.1
 
 test:
-  # test modules are not distributed with wheels
   imports:
     - buildbot
     - buildbot.changes
-    - buildbot.clients
-    - buildbot.configurators
-    - buildbot.data
-    - buildbot.db
-    - buildbot.db.migrate.versions
-    - buildbot.db.types
-    - buildbot.machine
-    - buildbot.monkeypatches
-    - buildbot.mq
-    - buildbot.plugins
-    - buildbot.process
-    - buildbot.process.users
-    - buildbot.reporters
-    - buildbot.schedulers
-    - buildbot.scripts
-    - buildbot.secrets
-    - buildbot.secrets.providers
-    - buildbot.statistics
-    - buildbot.statistics.storage_backends
-    - buildbot.status
-    - buildbot.steps
-    - buildbot.steps.package
-    - buildbot.steps.package.deb
-    - buildbot.steps.package.rpm
-    - buildbot.steps.source
-    - buildbot.util
-    - buildbot.wamp
-    - buildbot.worker
-    - buildbot.worker.protocols
-    - buildbot.www
-    - buildbot.www.authz
-    - buildbot.www.hooks
   commands:
+    - pip check
     - buildbot --help
+    - buildbot_windows_service --help  # [win]
+  requires:
+    - pip
 
 about:
   home: https://buildbot.net/
-  license: GNU General Public (GPL)
-  license_family: LGPL
+  license: GPL-2.0
   license_file: COPYING
   summary: Python-based continuous integration testing framework
   doc_url: https://docs.buildbot.net
