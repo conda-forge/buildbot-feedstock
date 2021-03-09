@@ -3,7 +3,7 @@ About buildbot
 
 Home: https://buildbot.net/
 
-Package license: GNU General Public (GPL)
+Package license: GPL-2.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/buildbot-feedstock/blob/master/LICENSE.txt)
 
