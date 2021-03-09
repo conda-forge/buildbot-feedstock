@@ -14,72 +14,42 @@ build:
   noarch: python
   entry_points:
     - buildbot=buildbot.scripts.runner:run
-    - buildbot_windows_service=buildbot.scripts.windows_service: HandleCommandLine  # [win]
+    - buildbot_windows_service=buildbot.scripts.windows_service:HandleCommandLine
   script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
     - pip
-    - python >3.5
+    - python >=3.6
     - setuptools >=8.0
   run:
     - autobahn >=0.16.0
     - jinja2 >=2.1
     - pyjwt
-    - python >3.5
+    - python >=3.6
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
-    - sqlalchemy >=1.1.0
-    - sqlalchemy-migrate >=0.9
+    - sqlalchemy >=1.2.0
+    - sqlalchemy-migrate >=0.13
     - twisted >=17.9.0
     - txaio >=2.2.2
     - zope.interface >=4.1.1
 
 test:
-  # test modules are not distributed with wheels
   imports:
     - buildbot
     - buildbot.changes
-    - buildbot.clients
-    - buildbot.configurators
-    - buildbot.data
-    - buildbot.db
-    - buildbot.db.migrate.versions
-    - buildbot.db.types
-    - buildbot.machine
-    - buildbot.monkeypatches
-    - buildbot.mq
-    - buildbot.plugins
-    - buildbot.process
-    - buildbot.process.users
-    - buildbot.reporters
-    - buildbot.schedulers
-    - buildbot.scripts
-    - buildbot.secrets
-    - buildbot.secrets.providers
-    - buildbot.statistics
-    - buildbot.statistics.storage_backends
-    - buildbot.status
-    - buildbot.steps
-    - buildbot.steps.package
-    - buildbot.steps.package.deb
-    - buildbot.steps.package.rpm
-    - buildbot.steps.source
-    - buildbot.util
-    - buildbot.wamp
-    - buildbot.worker
-    - buildbot.worker.protocols
-    - buildbot.www
-    - buildbot.www.authz
-    - buildbot.www.hooks
   commands:
+    - pip check
     - buildbot --help
+    - buildbot_windows_service --help  # [win]
+  requires:
+    - pip
 
 about:
   home: https://buildbot.net/
-  license: GNU General Public (GPL)
-  license_family: LGPL
+  license: GPL-2.0
   license_file: COPYING
   summary: Python-based continuous integration testing framework
   doc_url: https://docs.buildbot.net
