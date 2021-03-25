@@ -30,7 +30,7 @@ requirements:
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
-    - sqlalchemy >=1.2.0
+    - sqlalchemy >=1.2.0,<1.4
     - sqlalchemy-migrate >=0.13
     - twisted >=17.9.0
     - txaio >=2.2.2
