@@ -23,6 +23,7 @@ requirements:
     - python >=3.6
     - setuptools >=8.0
   run:
+    - alembic
     - autobahn >=0.16.0
     - jinja2 >=2.1
     - pyjwt
