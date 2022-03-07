@@ -1,5 +1,5 @@
 {% set name = "buildbot" %}
-{% set version = "3.4.0" %}
+{% set version = "3.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d78c35b05d5a3a97d45bbeae840214a5dae300485090459c44683d3ac73ea859
+  sha256: c281877426a7e6a4e9d34b6836459af36d4481540cacf2be3965e8a857202034
 
 build:
   number: 0
@@ -31,6 +31,7 @@ requirements:
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
+    - msgpack-python
     - sqlalchemy >=1.2.0,<1.4
     - sqlalchemy-migrate >=0.13
     - twisted >=17.9.0
