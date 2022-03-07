@@ -31,6 +31,7 @@ requirements:
     - python-dateutil >=1.5
     - pyyaml
     - setuptools >=8.0
+    - msgpack-python
     - sqlalchemy >=1.2.0,<1.4
     - sqlalchemy-migrate >=0.13
     - twisted >=17.9.0
