@@ -1,11 +1,11 @@
-About buildbot
-==============
+About buildbot-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/buildbot-feedstock/blob/main/LICENSE.txt)
 
 Home: https://buildbot.net/
 
 Package license: GPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/buildbot-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python-based continuous integration testing framework
 
