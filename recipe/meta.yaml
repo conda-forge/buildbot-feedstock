@@ -20,23 +20,26 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.8
     - setuptools >=8.0
   run:
-    - alembic
-    - autobahn >=0.16.0
-    - jinja2 >=2.1
-    - pyjwt
-    - python >=3.6
-    - python-dateutil >=1.5
-    - pyyaml
+    - python >=3.8
     - setuptools >=8.0
-    - msgpack-python
-    - sqlalchemy >=1.2.0,<1.4
-    - sqlalchemy-migrate >=0.13
-    - twisted >=17.9.0
-    - txaio >=2.2.2
+    - twisted >=18.7.0,<=22.10.0
+    - jinja2 >=2.1
+    - msgpack-python >=0.6.0
+    - croniter >=1.3.0
+    - importlib-resources >=5
     - zope.interface >=4.1.1
+    - sqlalchemy >=1.3.0,<1.5
+    - alembic >=1.6.0
+    - python-dateutil >=1.5
+    - txaio >=2.2.2
+    - autobahn >=0.16.0
+    - packaging
+    - pyjwt
+    - pyyaml
+    - unidiff >=0.7.5
 
 test:
   imports:
